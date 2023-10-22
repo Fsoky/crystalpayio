@@ -1,5 +1,5 @@
-from utils.base import _BaseCrystalPayIO
-from api.get_asyncio_api import (
+from crystalpayio.utils.base import _BaseCrystalPayIO
+from crystalpayio.api.get_asyncio_api import (
     _Checkout,
     _Payment,
     _Invoice,
