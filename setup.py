@@ -9,7 +9,7 @@ def read(filename):
 
 setup(
    name="crystalpayio",
-   version="1.0.0",
+   version="1.0.4",
    description="Asynchronous wrapper for CrystalPay API",
    long_description=read("README.md"),
    long_description_content_type="text/markdown",
