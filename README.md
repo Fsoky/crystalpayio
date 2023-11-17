@@ -1,9 +1,9 @@
 <p align="center">
-      <img src="https://i.ibb.co.com/1RzcT6y/Be-Funky-design.png" alt="Project Logo" width="500">
+      <a href="https://imgur.com/9t3fDgT"><img src="https://i.imgur.com/9t3fDgT.png" title=Logo" width="500"/></a>
 </p>
 
 <p align="center">
-    <img src="https://img.shields.io/badge/Version-1.0.4-blueviolet" alt="Game Version">
+    <img src="https://img.shields.io/badge/Version-1.0.4-blueviolet" alt="Project Version">
     <img src="https://img.shields.io/badge/License-MIT-success" alt="License">
 </p>
 
@@ -12,7 +12,7 @@
 
 В данном репозитории вы найдете способы установки и использования библиотеки.
 Если вы обнаружите баги или какие-либо проблемы при использовании прошу отписать в [телеграм](https://t.me/fsoky_community). Данный модуль будет поддерживаться и обновляться. Спасибо, хорошего настроения!
-> **note**
+> [!NOTE]
 > Чтобы получить _AUTH_LOGIN_ & _AUTH_SECRET_ перейдите в [телеграм бота](https://t.me/CrystalPAY_bot) и создайте новую кассу. \
 > В настройках можете включить тестовые платежи.
 
