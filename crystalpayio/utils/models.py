@@ -166,7 +166,7 @@ class HistoryBaseData(BaseModel):
     currency: str
     amount: int | float
     created_at: str
-    expired_at: Optional[str] | None = None
+    expired_at: Optional[str] = None
 
 
 class HistoryPayments(BaseCrystalPayModels):
@@ -186,3 +186,26 @@ class HistorySummaryData(BaseModel):
 class HistorySummary(BaseCrystalPayModels):
     incoming: HistorySummaryData
     outgoing: HistorySummaryData
+
+
+class PaymentEvent(BaseModel):
+    signature: str
+    id: str
+    url: str
+    state: str
+    type: str
+    method: str
+    required_method: str
+    currency: str
+    service_commission: float
+    extra_commission: float
+    amount: float
+    pay_amount: float
+    remaining_amount: float
+    balance_amount: float
+    description: str
+    redirect_url: str
+    callback_url: str
+    extra: str
+    created_at: str
+    expired_at: str
