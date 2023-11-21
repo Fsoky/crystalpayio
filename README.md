@@ -3,12 +3,15 @@
 </p>
 
 <p align="center">
-    <img src="https://img.shields.io/badge/Version-1.0.4-blueviolet" alt="Project Version">
+    <img src="https://img.shields.io/badge/Version-1.0.5-blueviolet" alt="Project Version">
     <img src="https://img.shields.io/badge/License-MIT-success" alt="License">
 </p>
 
 ## О библиотеке 💙
 Библиотека **CrystalPayIO** предоставит удобное использование и интеграцию _[CrystalPay](https://crystalpay.io/) API_ в ваши проекты.
+
+> [!TIP]
+> **Документация CrystalPAY:** https://docs.crystalpay.io/
 
 В данном репозитории вы найдете способы установки и использования библиотеки.
 Если вы обнаружите баги или какие-либо проблемы при использовании прошу отписать в [телеграм](https://t.me/fsoky_community). Данный модуль будет поддерживаться и обновляться. Спасибо, хорошего настроения!
@@ -127,4 +130,42 @@ async def main() -> None:
 
 if __name__ == "__main__":
     asyncio.run(main())
+```
+
+## Пример использования Webhook'ов 🕸
+```py
+import asyncio
+
+from crystalpayio import CrystalPayIO, WebhookManager, PaymentEvent
+
+from fastapi import FastAPI # pip install fastapi[all]
+import uvicorn # pip install uvicorn
+
+WEBHOOK_URL = "https://xxx-xxx-xxx.ngrok-free.app" # ngrok url
+WEBHOOK_ENDPOINT = "/my-endpoint"
+
+app = FastAPI()
+crystal = CrystalPayIO("AUTH_LOGIN", "AUTH_SECRET")
+wm = WebhookManager(app)
+
+wm.register_webhook_endpoint(WEBHOOK_ENDPOINT) # Регистрируем путь к вебхуку
+
+
+@wm.successfull_payment()
+async def handle_successfull_event(event: PaymentEvent) -> None:
+    print(event)
+
+
+async def create_invoice() -> None:
+    order = await crystal.invoice.create(
+        10, # Сумма (в рублях)
+        5, # Время жизни чека (в минутах)
+        callback_url=f"{WEBHOOK_URL}{WEBHOOK_ENDPOINT}"
+    )
+    print(order.url)
+
+
+if __name__ == "__main__":
+    asyncio.run(create_invoice()) # Запуск функции
+    uvicorn.run("test:app")
 ```

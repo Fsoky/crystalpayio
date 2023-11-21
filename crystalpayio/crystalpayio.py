@@ -8,6 +8,8 @@ from crystalpayio.api.get_asyncio_api import (
     _History
 )
 
+__all__ = ["CrystalPayIO"]
+
 
 class CrystalPayIO(_BaseCrystalPayIO):
     
