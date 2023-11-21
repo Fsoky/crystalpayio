@@ -33,4 +33,9 @@ class _BaseCrystalPayIO:
     
     @classmethod
     def signature(cls, signature_string: str) -> str:
+        """Generate a SHA-1 signature for a given string.
+
+        :param signature_string: The string for which the signature needs to be generated.
+        """
+
         return hashlib.sha1(str.encode(signature_string)).hexdigest()
